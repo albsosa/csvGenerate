@@ -109,15 +109,17 @@ app.get("/obtener", (req, res) => {
                 } = data;
                 contador = 1;
                 let contactos = {}
-                contacts.map(function (contacto){
-                    (contactos["contactName" + contador] = contacto.name),
-                    (contactos["contactLastName" + contador] = contacto.lastName),
-                    (contactos["contactsecondFamilyName" + contador] = contacto.secondFamilyName),
-                    (contactos["contactEmail" + contador] = contacto.email),
-                    (contactos["contactMobile" + contador] = contacto.mobile),
-                    (contactos["contactRelationship" + contador] = contacto.relationship)
-                    contador++;
-                });
+                if(contacts){
+                    contacts.map(function (contacto){
+                        (contactos["contactName" + contador] = contacto.name),
+                        (contactos["contactLastName" + contador] = contacto.lastName),
+                        (contactos["contactsecondFamilyName" + contador] = contacto.secondFamilyName),
+                        (contactos["contactEmail" + contador] = contacto.email),
+                        (contactos["contactMobile" + contador] = contacto.mobile),
+                        (contactos["contactRelationship" + contador] = contacto.relationship)
+                        contador++;
+                    });
+                }
                 //llenado del arreglo
                 clientes.push({
                     clientId,
